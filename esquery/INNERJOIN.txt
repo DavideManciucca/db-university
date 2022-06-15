@@ -22,3 +22,24 @@ ON `course_teacher`.`course_id` = `courses`.`id`
 INNER JOIN `teachers`
 ON `course_teacher`.`teacher_id` = `teachers`.`id`
 WHERE `teachers`.`id` = 44
+
+4
+SELECT `students`.`name` AS `Nome`, `students`.`surname` AS `Cognome`, `degrees`.`name` AS `nome corso laurea`, `departments`.`name` AS `nome del dipartimento`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+ORDER BY `students`.`surname` AND `students`.`name`
+
+5
+SELECT `degrees`.`name` AS `Nome Corso Di Laurea`, `courses`.`name` AS `Nome Corso Interno`, `teachers`.`name` AS `Nome Docente`, `teachers`.`surname` AS `Cognome Docente`
+FROM `degrees`
+JOIN `courses` 
+ON `courses`.`degree_id` = `degrees`.`id`
+JOIN `course_teacher` 
+ON `course_teacher`.`course_id` = `courses`.`id` 
+JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+JOIN `departments` 
+ON `degrees`.`department_id` = `departments`.`id`
