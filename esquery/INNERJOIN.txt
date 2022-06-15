@@ -1,0 +1,24 @@
+1 INNER JOIN
+SELECT `students`.id , `students`.`name` AS `Nome`, `students`.`surname` AS `Cognome`, `degrees`.`name` AS `Corso Di Laurea`, `degrees`.`level` AS `Livello`
+FROM `students`
+JOIN `degrees` 
+ON `students`.`degree_id` = `degrees`.`id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+
+(?)
+2 
+SELECT `courses`.`id`, `courses`.`name`
+FROM `courses`
+INNER JOIN `degrees`
+ON `degrees`.`id` = `courses`.`degree_id`
+WHERE `degrees`.`name` = 'Corso di Laurea del Dipartimento di Neuroscienze'
+(?)
+
+3
+SELECT `courses`.`name`, `teachers`.`name`,`teachers`.`surname`
+FROM `courses`
+INNER JOIN `course_teacher`
+ON `course_teacher`.`course_id` = `courses`.`id`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+WHERE `teachers`.`id` = 44
