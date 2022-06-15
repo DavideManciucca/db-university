@@ -1,0 +1,19 @@
+1 GROUP BY
+SELECT COUNT(*) AS `ISCRITTI`, YEAR(`ENROLMENT_DATE`) AS `ANNO`
+FROM `students`
+GROUP BY `ANNO`
+
+2
+SELECT COUNT(*) AS `DOCENTI`, `office_address` AS `indirizzo`
+FROM `teachers`
+GROUP BY `indirizzo`
+
+3
+SELECT ROUND( AVG(`vote`)) AS `media_voti`, `exam_id` AS `appello`
+FROM `exam_student`
+GROUP BY `appello`
+
+4
+SELECT COUNT(`id`) AS `corsi_laurea`, `department_id`
+FROM `degrees`
+GROUP BY `department_id`
